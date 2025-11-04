@@ -5,10 +5,10 @@ This simple implementation used the simplex tableau (big M coming soon) to solve
 
 As such, the user needs to enter the data in tableau form with slack variables added. Given a problem like:
 
-$$\text{MAX }7x_1 + 6x_2 \quad s.t. 
-
-
-2x_1 + 4x_2 + s_1 = 16 \\
+$$\text{MAX }7x_1 + 6x_2$$
+such that
+$$
+2x_1 + 4x_2 + s_1 = 16 \\\
 3x_1 + 2x_2 + s_2 = 12.
 $$
 
