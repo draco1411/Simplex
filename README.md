@@ -1,5 +1,6 @@
-I took a proof based class many years ago about linear programming and the simplex alg. I solved a lit by hand and proved 
+I took a proof based class many years ago about linear programming and the simplex alg. I solved a lot by hand and proved 
 some nice facts about the overall theory. It was always on my TODO list to write code that did this all for me. 
+This is all done with native lists in python and does not rely on NumPy #BallOutTillTheyCrawlOut
 
 This simple implementation used the simplex tableau (big M coming soon) to solve simple, well formulated linear optimization problems.
 
@@ -28,3 +29,6 @@ Then the variables in the USER DEFINED SECTION would be:
 `current_basis = [0, 0]`
 
 Note that with this form, `current_basis` will always be a zero vector. 
+
+
+I've kept the session.vim file intact mostly for me. 

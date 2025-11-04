@@ -9,18 +9,22 @@ def dotp(a, b):
         a, b (list[int]): vectors of equal size
 
     Returns:
-        integer
+        dot_product (int): The dot product
 
     Raises:
         None
     """
-    return sum([a[i]*b[i] for i in range(len(a))])
+    dot_product = sum([a[i]*b[i] for i in range(len(a))])
+    return dot_product
 
 
 def col_index(A, i):
     """docstring
 
-    Pulls a column out of a list of lists (matrix) given a index
+    Pulls a column out of a list[list[int]] (matrix) given an index
+    [[1, 2],
+     [3, 4]]
+    returns [1, 3] for i=0 and [2, 4] for i=1
 
     Args:
         A (matrix): The matrix in question
@@ -45,15 +49,39 @@ conditions = [[2, 4, 1, 0],
 
 basic_solutions = [16, 12]
 current_basis = [0, 0]
+current_basis_vars = ['s_1', 's_2']
 ### END USER DEFINED ITEMS ###
 
 
-columns = [col_index(conditions, k) for k in range(len(conditions[0]))]
-zj = [dotp(current_basis, columns[i]) for i in range(len(conditions[0]))]
+columns_of_conditions: list = [col_index(conditions, k) for k in range(len(conditions[0]))] # Vec of columns; essentially transpose
+zj: list = [dotp(current_basis, columns_of_conditions[i]) for i in range(len(conditions[0]))]
 
-cj_minus_zj = [max_coeff[i] - zj[i] for i in range(len(zj))]
+cj_minus_zj: list = [max_coeff[i] - zj[i] for i in range(len(zj))]
 
-while max(cj_minus_zj) >= 0:
-    max_index = cj_minus_zj.index(max(cj_minus_zj))
-    ratio_vec = 
+# while max(cj_minus_zj) >= 0:
+pivot_column_index: int = cj_minus_zj.index(max(cj_minus_zj)) # This gives the index for the pivot col   0 atm
+ratio_vec: list = [basic_solutions[i] / col_index(conditions, pivot_column_index)[i] for i in range(len(basic_solutions))] # vec of b/x_i
+pivot_row_index: int = ratio_vec.index(min(ratio_vec)) # 1 
+pivot_element: float = conditions[pivot_row_index][pivot_column_index] # 3.0
+
+# update the current_basis and current_basis_vars 
+current_basis[pivot_row_index] = max_coeff[pivot_column_index]
+current_basis_vars[pivot_row_index] = max_vars[pivot_column_index]
+
+# Convert pivot element to 1 and covert rest of row accordingly. This operation happens to the basic_solutions too
+conditions[pivot_row_index] = list(map(lambda x: x / pivot_element, conditions[pivot_row_index]))
+basic_solutions[pivot_row_index] = basic_solutions[pivot_row_index] / pivot_element
+
+
+# Convert the rest of the conditions matrix such that 0s appear in the rest of the pivot column. This is done with 
+# elementary row operations. 
+
+# changing the main matrix
+scaled_pivot_row = list(map(lambda x: -(conditions[0][pivot_column_index]) * x, conditions[pivot_row_index]))
+added_vectors = [conditions[0][j] + scaled_pivot_row[j] for j in range(len(scaled_pivot_row))]
+conditions[0] = added_vectors
+
+# changing the basic solutions with the same idea
+
+
 
