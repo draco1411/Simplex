@@ -5,19 +5,24 @@ This simple implementation used the simplex tableau (big M coming soon) to solve
 
 As such, the user needs to enter the data in tableau form with slack variables added. Given a problem like:
 
-$$\text{max}7x_1 + 6x_2 \quad s.t. \\
+$$\text{MAX }7x_1 + 6x_2 \quad s.t. 
+
+
 2x_1 + 4x_2 + s_1 = 16 \\
 3x_1 + 2x_2 + s_2 = 12.
 $$
 
 Then the variables in the USER DEFINED SECTION would be:
+
 `max_coeff = [7, 6, 0, 0]`
+
 `max_vars = ['x_1', 'x_2', 's_1', 's_2']`
 
 `conditions = [[2, 4, 1, 0],
               [3, 2, 0, 1]]`
 
 `basic_solutions = [16, 12]`
+
 `current_basis = [0, 0]`
 
 Note that with this form, `current_basis` will always be a zero vector. 
