@@ -73,7 +73,7 @@ else
 endif
 badd +1 simplex.py
 badd +1 README.md
-badd +0 help_func.py
+badd +1 help_func.py
 argglobal
 %argdel
 $argadd simplex.py
@@ -222,12 +222,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 3 - ((2 * winheight(0) + 20) / 41)
+let s:l = 65 - ((39 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 0
+keepjumps 65
+normal! 010|
 tabnext
 edit README.md
 argglobal
@@ -375,11 +375,11 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 30 - ((29 * winheight(0) + 20) / 41)
+let s:l = 41 - ((39 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 30
+keepjumps 41
 normal! 0
 tabnext
 edit help_func.py
@@ -532,7 +532,7 @@ keepjumps exe s:l
 normal! zt
 keepjumps 17
 normal! 0
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf

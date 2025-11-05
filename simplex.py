@@ -61,5 +61,6 @@ print("the solutions are: ")
 for i in range(len(basic_solutions)):
     print(f"{current_basis_vars[i]} = {basic_solutions[i]}")
 
-
+maxxxx = dotp(current_basis, basic_solutions)
+print(f"giving an optimal maximum of {maxxxx}")
 
