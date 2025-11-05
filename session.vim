@@ -375,12 +375,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((39 * winheight(0) + 20) / 41)
+let s:l = 23 - ((21 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
-normal! 0
+keepjumps 23
+normal! 018|
 tabnext
 edit help_func.py
 argglobal

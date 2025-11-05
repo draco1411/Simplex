@@ -17,10 +17,10 @@ needs to be converted into "standard form" by adding slack variables to get
 $$\text{Max }7x_1 + 6x_2$$
 such that
 $$
-2x_1 + 4x_2 + s_1 \phantom{+ s_2} = 16
+2x_1 + 4x_2 + s_1  = 16
 $$
 $$
-3x_1 + 2x_2 \phantom{+ s_1} + s_2 = 12.
+3x_1 + 2x_2 + s_2 = 12.
 $$
 
 Then the variables in the USER DEFINED SECTION would be:
