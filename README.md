@@ -1,12 +1,9 @@
-I took a proof based class many years ago about linear programming and the simplex alg. I solved a lot by hand and proved 
-some nice facts about the overall theory. It was always on my TODO list to write code that did this all for me. 
-This is all done with native lists in python and does not rely on NumPy #BallOutTillTheyCrawlOut
-
 This simple implementation used the simplex tableau (big M coming soon) to solve simple, well formulated linear optimization problems.
+This is all done with native lists in python and does not rely on NumPy #BallOutTillTheyCrawlOut
 
 As such, the user needs to enter the data in tableau form with slack variables added. Given a problem like:
 
-$$\text{MAX }7x_1 + 6x_2$$
+$$\text{Max }7x_1 + 6x_2$$
 such that
 $$
 2x_1 + 4x_2 + s_1 = 16
