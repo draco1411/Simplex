@@ -39,4 +39,4 @@ Then the variables in the USER DEFINED SECTION would be:
 Note that with this form, `current_basis` will always be a zero vector. 
 
 
-I've kept the session.vim file intact mostly for me. 
+
